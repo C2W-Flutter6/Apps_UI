@@ -10,6 +10,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
@@ -27,10 +28,12 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Text(
           "Travenor",
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontWeight: FontWeight.w400,
             fontSize: 40,
-            height: 42,
+            color:
+                Colors
+                    .white, // Ensure the text is visible on the blue background
           ),
         ),
       ),
