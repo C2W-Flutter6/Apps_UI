@@ -1,17 +1,14 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:travelapp_ui/Onboard-2.dart';
 
-class Onboard1_Page extends StatefulWidget {
-  const Onboard1_Page({super.key});
+class Onboard2_Page extends StatefulWidget {
+  const Onboard2_Page({super.key});
 
   @override
-  State<Onboard1_Page> createState() => _Onboard1_PageState();
+  State<Onboard2_Page> createState() => _Onboard2_PageState();
 }
 
-class _Onboard1_PageState extends State<Onboard1_Page> {
+class _Onboard2_PageState extends State<Onboard2_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +32,19 @@ class _Onboard1_PageState extends State<Onboard1_Page> {
                 ),
                 Positioned(
                   top: 20,
+                  left: 30,
                   right: 40,
                   child: Row(
                     children: [
+                      Container(
+                        width: 20,
+                        height: 20,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Icon(Icons.arrow_back, color: Colors.white),
+                        ),
+                      ),
+                      Spacer(),
                       GestureDetector(
                         onTap: () {},
 
@@ -56,8 +63,6 @@ class _Onboard1_PageState extends State<Onboard1_Page> {
               ],
             ),
           ),
-
-          //Words and ElevatedButton
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(
@@ -72,21 +77,21 @@ class _Onboard1_PageState extends State<Onboard1_Page> {
                   RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
-                      text: "It's a big world out\n",
+                      text: "Life is short and the\n",
                       style: GoogleFonts.aclonica(
                         fontSize: 26,
                         fontWeight: FontWeight.w400,
                         color: Colors.black,
                       ),
                       children: [
-                        TextSpan(text: "there go "),
+                        TextSpan(text: "world is "),
                         WidgetSpan(
                           child: Stack(
                             alignment: Alignment.bottomCenter,
                             clipBehavior: Clip.none,
                             children: [
                               Text(
-                                "explore",
+                                "wide",
                                 style: GoogleFonts.aclonica(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w400,
@@ -184,14 +189,7 @@ class _Onboard1_PageState extends State<Onboard1_Page> {
                     height: 56,
 
                     child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Onboard2_Page(),
-                          ),
-                        );
-                      },
+                      onPressed: () {},
                       style: ButtonStyle(
                         backgroundColor: WidgetStatePropertyAll(
                           Color.fromRGBO(13, 110, 253, 1),
