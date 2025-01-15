@@ -148,7 +148,8 @@ class _Onboard2_PageState extends State<Onboard2_Page> {
                   SizedBox(height: 24),
                   //Smaller text
                   Text(
-                    "At Friends tours and travel, we \ncustomize reliable and trut worthy \neducational tours to destinations",
+                    "To get the best of your adventure \nyou just need to leave and go where \nyou like. we are waiting for you",
+
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
@@ -166,10 +167,10 @@ class _Onboard2_PageState extends State<Onboard2_Page> {
                       //Dot 1
                       Container(
                         margin: EdgeInsets.all(2),
-                        width: 35,
+                        width: 13,
                         height: 7,
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(13, 110, 253, 1),
+                          color: Color.fromRGBO(202, 234, 255, 1),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
@@ -177,10 +178,10 @@ class _Onboard2_PageState extends State<Onboard2_Page> {
                       //Dot 2
                       Container(
                         margin: EdgeInsets.all(2),
-                        width: 13,
+                        width: 35,
                         height: 7,
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(202, 234, 255, 1),
+                          color: Color.fromRGBO(13, 110, 253, 1),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),

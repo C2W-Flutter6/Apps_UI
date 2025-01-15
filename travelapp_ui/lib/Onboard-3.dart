@@ -27,7 +27,7 @@ class _Onboard3_PageState extends State<Onboard3_Page> {
                       bottomRight: Radius.circular(30),
                     ),
                     image: DecorationImage(
-                      image: AssetImage("assets/Onboard_1.png"),
+                      image: AssetImage("assets/Onboard_3.png"),
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -78,21 +78,21 @@ class _Onboard3_PageState extends State<Onboard3_Page> {
                   RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
-                      text: "It's a big world out\n",
+                      text: "People don't take trips,\n",
                       style: GoogleFonts.aclonica(
                         fontSize: 26,
                         fontWeight: FontWeight.w400,
                         color: Colors.black,
                       ),
                       children: [
-                        TextSpan(text: "there go "),
+                        TextSpan(text: "trips take "),
                         WidgetSpan(
                           child: Stack(
                             alignment: Alignment.bottomCenter,
                             clipBehavior: Clip.none,
                             children: [
                               Text(
-                                "explore",
+                                "people",
                                 style: GoogleFonts.aclonica(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w400,
@@ -150,10 +150,10 @@ class _Onboard3_PageState extends State<Onboard3_Page> {
                       //Dot 1
                       Container(
                         margin: EdgeInsets.all(2),
-                        width: 35,
+                        width: 13,
                         height: 7,
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(13, 110, 253, 1),
+                          color: Color.fromRGBO(202, 234, 255, 1),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
@@ -161,7 +161,7 @@ class _Onboard3_PageState extends State<Onboard3_Page> {
                       //Dot 2
                       Container(
                         margin: EdgeInsets.all(2),
-                        width: 13,
+                        width: 6,
                         height: 7,
                         decoration: BoxDecoration(
                           color: Color.fromRGBO(202, 234, 255, 1),
@@ -172,10 +172,10 @@ class _Onboard3_PageState extends State<Onboard3_Page> {
                       //Dot 3
                       Container(
                         margin: EdgeInsets.all(2),
-                        width: 6,
+                        width: 35,
                         height: 7,
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(202, 234, 255, 1),
+                          color: Color.fromRGBO(13, 110, 253, 1),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
@@ -209,7 +209,7 @@ class _Onboard3_PageState extends State<Onboard3_Page> {
                         ),
                       ),
                       child: Text(
-                        "Get Started",
+                        "Next",
                         style: GoogleFonts.poppins(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
