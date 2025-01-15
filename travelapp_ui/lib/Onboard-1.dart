@@ -10,6 +10,6 @@ class Onboard1_Page extends StatefulWidget {
 class _Onboard1_PageState extends State<Onboard1_Page> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(body: Column());
   }
 }
