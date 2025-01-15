@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp_ui/Onboard-2.dart';
+import 'package:travelapp_ui/signin_page.dart';
 
 class Onboard1_Page extends StatefulWidget {
   const Onboard1_Page({super.key});
@@ -39,7 +40,14 @@ class _Onboard1_PageState extends State<Onboard1_Page> {
                   child: Row(
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SignIn_Page(),
+                            ),
+                          );
+                        },
 
                         child: Text(
                           "Skip",

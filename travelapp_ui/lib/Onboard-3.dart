@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:travelapp_ui/Onboard-1.dart';
-import 'package:travelapp_ui/Onboard-3.dart';
+import 'package:travelapp_ui/Onboard-2.dart';
 import 'package:travelapp_ui/signin_page.dart';
 
-class Onboard2_Page extends StatefulWidget {
-  const Onboard2_Page({super.key});
+class Onboard3_Page extends StatefulWidget {
+  const Onboard3_Page({super.key});
 
   @override
-  State<Onboard2_Page> createState() => _Onboard2_PageState();
+  State<Onboard3_Page> createState() => _Onboard3_PageState();
 }
 
-class _Onboard2_PageState extends State<Onboard2_Page> {
+class _Onboard3_PageState extends State<Onboard3_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,26 +34,9 @@ class _Onboard2_PageState extends State<Onboard2_Page> {
                 ),
                 Positioned(
                   top: 20,
-                  left: 30,
                   right: 40,
                   child: Row(
                     children: [
-                      Container(
-                        width: 20,
-                        height: 20,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Onboard1_Page(),
-                              ),
-                            );
-                          },
-                          child: Icon(Icons.arrow_back, color: Colors.white),
-                        ),
-                      ),
-                      Spacer(),
                       GestureDetector(
                         onTap: () {
                           Navigator.pushReplacement(
@@ -80,6 +62,8 @@ class _Onboard2_PageState extends State<Onboard2_Page> {
               ],
             ),
           ),
+
+          //Words and ElevatedButton
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(
@@ -94,21 +78,21 @@ class _Onboard2_PageState extends State<Onboard2_Page> {
                   RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
-                      text: "Life is short and the\n",
+                      text: "It's a big world out\n",
                       style: GoogleFonts.aclonica(
                         fontSize: 26,
                         fontWeight: FontWeight.w400,
                         color: Colors.black,
                       ),
                       children: [
-                        TextSpan(text: "world is "),
+                        TextSpan(text: "there go "),
                         WidgetSpan(
                           child: Stack(
                             alignment: Alignment.bottomCenter,
                             clipBehavior: Clip.none,
                             children: [
                               Text(
-                                "wide",
+                                "explore",
                                 style: GoogleFonts.aclonica(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w400,
@@ -210,7 +194,7 @@ class _Onboard2_PageState extends State<Onboard2_Page> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Onboard3_Page(),
+                            builder: (context) => Onboard2_Page(),
                           ),
                         );
                       },
@@ -225,9 +209,9 @@ class _Onboard2_PageState extends State<Onboard2_Page> {
                         ),
                       ),
                       child: Text(
-                        "Next",
+                        "Get Started",
                         style: GoogleFonts.poppins(
-                          fontSize: 20,
+                          fontSize: 16,
                           fontWeight: FontWeight.w600,
                           color: Color.fromRGBO(255, 255, 255, 1),
                         ),
