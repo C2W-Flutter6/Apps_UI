@@ -12,10 +12,10 @@ class _Onboard1_PageState extends State<Onboard1_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(255, 255, 255, 1),
       body: Column(
         children: [
           Expanded(
-            flex: 1,
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -32,7 +32,12 @@ class _Onboard1_PageState extends State<Onboard1_Page> {
 
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.only(
+                top: 40,
+                bottom: 8,
+                left: 25,
+                right: 25,
+              ),
               child: Column(
                 children: [
                   //First Text box
@@ -57,12 +62,31 @@ class _Onboard1_PageState extends State<Onboard1_Page> {
                                 style: GoogleFonts.aclonica(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w400,
-                                  color: Colors.orange,
+                                  color: Color.fromRGBO(255, 112, 41, 1),
                                 ),
                               ),
                               Positioned(
-                                bottom: 2, // Adjusts the underline position
-                                child: Container(),
+                                bottom: -4, // Adjusts the underline position
+
+                                child: Container(
+                                  height: 10,
+                                  width: 70,
+                                  //transform: Matrix4.translationValues(2, 6, 9),
+                                  //transformAlignment: Alignment.bottomLeft,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: AssetImage(
+                                        "assets/Onboarding1_vector.png",
+                                      ),
+                                      colorFilter: ColorFilter.mode(
+                                        Color.fromRGBO(255, 112, 41, 1),
+
+                                        BlendMode.srcIn,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -71,11 +95,89 @@ class _Onboard1_PageState extends State<Onboard1_Page> {
                     ),
                   ),
 
-                  SizedBox(height: 20),
-
+                  SizedBox(height: 24),
                   //Smaller text
-                  Text("This is smaller text"),
-                  ElevatedButton(onPressed: () {}, child: Text("Get Started")),
+                  Text(
+                    "At Friends tours and travel, we \ncustomize reliable and trut worthy \neducational tours to destinations",
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color.fromRGBO(91, 96, 102, 1),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+
+                  SizedBox(height: 24),
+
+                  //GestureDectectors for the 3 dots
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      //Dot 1
+                      Container(
+                        margin: EdgeInsets.all(2),
+                        width: 35,
+                        height: 7,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(13, 110, 253, 1),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+
+                      //Dot 2
+                      Container(
+                        margin: EdgeInsets.all(2),
+                        width: 13,
+                        height: 7,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(202, 234, 255, 1),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+
+                      //Dot 3
+                      Container(
+                        margin: EdgeInsets.all(2),
+                        width: 6,
+                        height: 7,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(202, 234, 255, 1),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 24),
+
+                  //Button for getting Started
+                  Container(
+                    width: double.infinity,
+                    height: 56,
+
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(
+                          Color.fromRGBO(13, 110, 253, 1),
+                        ),
+                        shape: WidgetStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                      ),
+                      child: Text(
+                        "Get Started",
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -85,57 +187,3 @@ class _Onboard1_PageState extends State<Onboard1_Page> {
     );
   }
 }
-
-
-/*RichText(
-  textAlign: TextAlign.center,
-  text: TextSpan(
-    text: "Life is short and the\n",
-    style: GoogleFonts.aclonica(
-      fontSize: 26,
-      fontWeight: FontWeight.w400,
-      color: Colors.black,
-    ),
-    children: [
-      TextSpan(
-        text: "world is ",
-      ),
-      WidgetSpan(
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            Text(
-              "wide",
-              style: GoogleFonts.aclonica(
-                fontSize: 26,
-                fontWeight: FontWeight.w400,
-                color: Colors.orange,
-              ),
-            ),
-            Positioned.fill(
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  width: 40, // Adjust width for the curve
-                  height: 20, // Adjust height for the curve
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: Colors.orange,
-                        width: 2.0,
-                        style: BorderStyle.solid,
-                      ),
-                    ),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    ],
-  ),
-),
-
- */
