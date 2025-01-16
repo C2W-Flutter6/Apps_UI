@@ -110,12 +110,12 @@ class _SignIn_PageState extends State<SignIn_Page> {
               //SignIn button
               Container(
                 width: double.infinity,
-                height: 56,
+                height: 50,
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
-                      Color.fromRGBO(13, 110, 253, 1),
+                      Color.fromRGBO(6, 102, 245, 1),
                     ),
                     shape: WidgetStateProperty.all(
                       RoundedRectangleBorder(
