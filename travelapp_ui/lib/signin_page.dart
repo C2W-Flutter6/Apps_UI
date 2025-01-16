@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:travelapp_ui/home_page.dart';
 
 class SignIn_Page extends StatefulWidget {
   const SignIn_Page({super.key});
@@ -112,7 +113,12 @@ class _SignIn_PageState extends State<SignIn_Page> {
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                  },
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
                       Color.fromRGBO(6, 102, 245, 1),
