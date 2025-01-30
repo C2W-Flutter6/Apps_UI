@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:travelapp_ui/home_page.dart';
+import 'package:travelapp_ui/signin_page.dart';
 
-class SignIn_Page extends StatefulWidget {
-  const SignIn_Page({super.key});
+class Signup_page extends StatefulWidget {
+  const Signup_page({super.key});
 
   @override
-  State<SignIn_Page> createState() => _SignIn_PageState();
+  State<Signup_page> createState() => _Signup_pageState();
 }
 
-class _SignIn_PageState extends State<SignIn_Page> {
+class _Signup_pageState extends State<Signup_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,7 @@ class _SignIn_PageState extends State<SignIn_Page> {
             children: [
               //Sign in text
               Text(
-                "Sign in now",
+                "Sign up now",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   fontSize: 23,
@@ -31,11 +32,11 @@ class _SignIn_PageState extends State<SignIn_Page> {
                 ),
               ),
 
-              //PLEASE SIGN IN - SMALL TEXT IN GRAY
+              //PLEASE Fill up details - SMALL TEXT IN GRAY
               Container(
                 margin: EdgeInsets.only(bottom: 30, left: 10, top: 5),
                 child: Text(
-                  "Please sign in to continue our app",
+                  "Please fill the details and create account",
                   style: GoogleFonts.poppins(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
@@ -43,6 +44,27 @@ class _SignIn_PageState extends State<SignIn_Page> {
                   ),
                 ),
               ),
+
+              //Name Textfield
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color.fromRGBO(247, 247, 249, 1),
+                ),
+                child: TextField(
+                  cursorColor: Colors.black,
+                  cursorHeight: 18,
+                  decoration: InputDecoration(
+                    fillColor: Colors.blue,
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 17,
+                      vertical: 1,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
 
               //Email id textfield
               Container(
@@ -87,17 +109,17 @@ class _SignIn_PageState extends State<SignIn_Page> {
                 ),
               ),
 
-              //Forgot Password
+              //Password must be 8 characters
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
                     onTap: () {},
                     child: Text(
-                      "Forget Password?",
-                      textAlign: TextAlign.right,
+                      "Password must be 8 characters",
+                      textAlign: TextAlign.left,
                       style: GoogleFonts.poppins(
-                        color: Color.fromRGBO(13, 110, 253, 1),
+                        color: Color.fromRGBO(98, 98, 98, 1),
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
                       ),
@@ -114,9 +136,9 @@ class _SignIn_PageState extends State<SignIn_Page> {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
+                      MaterialPageRoute(builder: (context) => SignIn_Page()),
                     );
                   },
                   style: ButtonStyle(
@@ -130,7 +152,7 @@ class _SignIn_PageState extends State<SignIn_Page> {
                     ),
                   ),
                   child: Text(
-                    "Sign In",
+                    "Sign Up",
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -141,31 +163,7 @@ class _SignIn_PageState extends State<SignIn_Page> {
                 ),
               ),
 
-              SizedBox(height: 20),
-              //Don't have an account?
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account? ",
-                    style: TextStyle(
-                      color: Color.fromRGBO(112, 123, 129, 1),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  Text(
-                    "Sign up",
-                    style: TextStyle(
-                      color: Color.fromRGBO(13, 110, 253, 1),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(height: 10),
+              SizedBox(height: 35),
               //Or connect text
               Text(
                 "Or connect",
