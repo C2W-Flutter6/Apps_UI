@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:travelapp_ui/home_page.dart';
+import 'package:travelapp_ui/signUp_page.dart';
 
 class SignIn_Page extends StatefulWidget {
   const SignIn_Page({super.key});
@@ -15,7 +16,7 @@ class _SignIn_PageState extends State<SignIn_Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(255, 255, 255, 1),
-      body: Center(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 140, left: 20, right: 20),
           child: Column(
@@ -26,40 +27,42 @@ class _SignIn_PageState extends State<SignIn_Page> {
                 "Sign in now",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
-                  fontSize: 23,
+                  fontSize: 28,
                   fontWeight: FontWeight.w600,
                 ),
               ),
 
               //PLEASE SIGN IN - SMALL TEXT IN GRAY
-              Container(
-                margin: EdgeInsets.only(bottom: 30, left: 10, top: 5),
-                child: Text(
-                  "Please sign in to continue our app",
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(125, 132, 141, 1),
+              Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(bottom: 30, left: 15, top: 12),
+                    child: Text(
+                      "Please sign in to continue our app",
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Color.fromRGBO(125, 132, 141, 1),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
 
               //Email id textfield
               Container(
+                height: 60,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(12),
                   color: Color.fromRGBO(247, 247, 249, 1),
                 ),
                 child: TextField(
                   cursorColor: Colors.black,
-                  cursorHeight: 18,
+                  textAlign: TextAlign.start,
                   decoration: InputDecoration(
                     fillColor: Colors.blue,
                     border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 17,
-                      vertical: 1,
-                    ),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 14),
                   ),
                 ),
               ),
@@ -67,7 +70,8 @@ class _SignIn_PageState extends State<SignIn_Page> {
 
               //Password
               Container(
-                margin: EdgeInsets.symmetric(vertical: 10),
+                height: 60,
+                margin: EdgeInsets.symmetric(vertical: 12),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Color.fromRGBO(247, 247, 249, 1),
@@ -75,13 +79,13 @@ class _SignIn_PageState extends State<SignIn_Page> {
                 child: TextField(
                   style: TextStyle(color: Colors.black),
                   cursorColor: Colors.black,
-                  cursorHeight: 18,
+                  cursorHeight: 25,
                   decoration: InputDecoration(
                     fillColor: Colors.blue,
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.symmetric(
                       horizontal: 17,
-                      vertical: 1,
+                      vertical: 4,
                     ),
                   ),
                 ),
@@ -97,8 +101,8 @@ class _SignIn_PageState extends State<SignIn_Page> {
                       "Forget Password?",
                       textAlign: TextAlign.right,
                       style: GoogleFonts.poppins(
-                        color: Color.fromRGBO(13, 110, 253, 1),
-                        fontSize: 12,
+                        color: Color.fromRGBO(10, 107, 253, 1),
+                        fontSize: 17,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -106,12 +110,12 @@ class _SignIn_PageState extends State<SignIn_Page> {
                 ],
               ),
 
-              SizedBox(height: 40),
+              SizedBox(height: 45),
 
               //SignIn button
               Container(
                 width: double.infinity,
-                height: 50,
+                height: 60,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -121,7 +125,7 @@ class _SignIn_PageState extends State<SignIn_Page> {
                   },
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
-                      Color.fromRGBO(6, 102, 245, 1),
+                      Color.fromRGBO(6, 102, 245, 0.8),
                     ),
                     shape: WidgetStateProperty.all(
                       RoundedRectangleBorder(
@@ -132,7 +136,7 @@ class _SignIn_PageState extends State<SignIn_Page> {
                   child: Text(
                     "Sign In",
                     style: GoogleFonts.poppins(
-                      fontSize: 14,
+                      fontSize: 18,
                       fontWeight: FontWeight.w600,
                       color: Color.fromRGBO(255, 255, 255, 1),
                     ),
@@ -141,7 +145,7 @@ class _SignIn_PageState extends State<SignIn_Page> {
                 ),
               ),
 
-              SizedBox(height: 20),
+              SizedBox(height: 50),
               //Don't have an account?
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -150,16 +154,24 @@ class _SignIn_PageState extends State<SignIn_Page> {
                     "Don't have an account? ",
                     style: TextStyle(
                       color: Color.fromRGBO(112, 123, 129, 1),
-                      fontSize: 14,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  Text(
-                    "Sign up",
-                    style: TextStyle(
-                      color: Color.fromRGBO(13, 110, 253, 1),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Signup_page()),
+                      );
+                    },
+                    child: Text(
+                      "Sign up",
+                      style: TextStyle(
+                        color: Color.fromRGBO(13, 110, 253, 1),
+                        fontSize: 19,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ],
@@ -171,13 +183,13 @@ class _SignIn_PageState extends State<SignIn_Page> {
                 "Or connect",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 19,
                   fontWeight: FontWeight.w400,
                   color: Color.fromRGBO(112, 123, 129, 1),
                 ),
               ),
 
-              SizedBox(height: 80),
+              SizedBox(height: 120),
               //Icons for social media
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -186,9 +198,9 @@ class _SignIn_PageState extends State<SignIn_Page> {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      margin: EdgeInsets.only(left: 85, right: 4),
-                      width: 37,
-                      height: 37,
+                      margin: EdgeInsets.only(left: 90, right: 5),
+                      width: 53,
+                      height: 53,
                       child: Image(
                         image: AssetImage("assets/fb_Icon.png"),
                         fit: BoxFit.contain,
@@ -200,9 +212,9 @@ class _SignIn_PageState extends State<SignIn_Page> {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      margin: EdgeInsets.only(left: 11, right: 16),
-                      width: 37,
-                      height: 37,
+                      margin: EdgeInsets.only(left: 17, right: 21),
+                      width: 53,
+                      height: 53,
                       child: Image(
                         image: AssetImage("assets/ig_Icon.png"),
                         fit: BoxFit.contain,
@@ -214,8 +226,8 @@ class _SignIn_PageState extends State<SignIn_Page> {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      width: 37,
-                      height: 37,
+                      width: 53,
+                      height: 53,
                       child: Image(
                         image: AssetImage("assets/twitter_Icon.png"),
                         fit: BoxFit.contain,

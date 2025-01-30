@@ -16,6 +16,7 @@ class _Signup_pageState extends State<Signup_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+      appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(top: 140, left: 20, right: 20),
