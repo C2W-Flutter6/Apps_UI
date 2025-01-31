@@ -139,7 +139,7 @@ class _Signup_pageState extends State<Signup_page> {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => SignIn_Page()),
+                      MaterialPageRoute(builder: (context) => HomePage()),
                     );
                   },
                   style: ButtonStyle(
