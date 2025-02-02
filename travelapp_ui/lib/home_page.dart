@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   margin: EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(255, 255, 255, 1),
+                    color: Color.fromRGBO(107, 102, 102, 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
