@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp_ui/model/destinationCard_homePage.dart'; // ✅ Import Model
-import 'package:travelapp_ui/view/destination_card.dart'; // ✅ Import Widget
+import 'package:travelapp_ui/view/destination_card.dart';
+import 'package:travelapp_ui/view/details_page.dart'; // ✅ Import Widget
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -143,7 +144,14 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailScreen(),
+                              ),
+                            );
+                          },
                           child: Text(
                             'View all',
                             style: GoogleFonts.poppins(
