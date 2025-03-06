@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travelapp_ui/model/destinationCard_homePage.dart'; // ✅ Import Model
+import 'package:travelapp_ui/view/destination_card.dart'; // ✅ Import Widget
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,6 +11,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final List<Destination> destinations = [
+    Destination(title: "Niladri Reservoir", location: "Tekerghat, Sunamganj"),
+    Destination(title: "Swiss Alps", location: "Switzerland"),
+    Destination(title: "Goa", location: "India"),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,13 +26,13 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Custom AppBar Row
+              // Profile & Notification Bar
               Padding(
                 padding: EdgeInsets.only(
                   left: 8,
                   right: 5,
                   top: 23,
-                  bottom: 14,
+                  bottom: 10,
                 ),
 
                 //Profile and bell icon
@@ -82,20 +90,18 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              // Body content (expands to take remaining space)
+              // Explore Section
               Padding(
                 padding: const EdgeInsets.only(
                   left: 18,
                   right: 2,
-                  top: 22,
+                  top: 18,
                   bottom: 24,
                 ),
-
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text.rich(
-                      //Explore the
                       TextSpan(
                         text: "Explore the \n",
                         style: GoogleFonts.poppins(
@@ -104,25 +110,19 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 40,
                         ),
                         children: [
-                          //Beautiful
                           TextSpan(
                             text: "Beautiful ",
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w600,
                               color: Colors.black,
-                              letterSpacing: 0.3,
-
                               fontSize: 40,
                             ),
                           ),
-
-                          //World
                           TextSpan(
                             text: "world!",
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w600,
                               color: Color.fromRGBO(255, 112, 41, 1),
-
                               fontSize: 40,
                             ),
                           ),
@@ -130,7 +130,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(height: 7),
-                    //BEST DESTINATION ROW
+
+                    // Best Destination Row
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -156,20 +157,19 @@ class _HomePageState extends State<HomePage> {
                     ),
 
                     SizedBox(height: 4),
-                    //LISTVIEW
+
+                    // Destination ListView
                     Container(
                       height: 420,
                       width: double.infinity,
-
                       child: ListView.builder(
-                        itemCount: 5,
+                        itemCount: destinations.length,
                         scrollDirection: Axis.horizontal,
-                        //reverse: true,
                         itemBuilder: (context, index) {
+                          final destination = destinations[index];
                           return Container(
                             height: 384,
                             width: 268,
-
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.all(
@@ -183,7 +183,11 @@ class _HomePageState extends State<HomePage> {
                               top: 10,
                               bottom: 10,
                             ),
-                            child: DestinationCard(),
+                            child: DestinationCard(
+                              title: destination.title, // ✅ Pass correct data
+                              location:
+                                  destination.location, // ✅ Pass correct data
+                            ),
                           );
                         },
                       ),
@@ -194,6 +198,8 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+
+        // Bottom Navigation Bar
         bottomNavigationBar: Container(
           height: 70,
           decoration: BoxDecoration(
@@ -204,112 +210,22 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              GestureDetector(
-                child: Icon(
-                  Icons.home_outlined,
-                  size: 30,
-                  color: const Color.fromARGB(255, 105, 104, 104),
+              Icon(Icons.home_outlined, size: 30, color: Colors.grey),
+              Icon(Icons.calendar_month, size: 30, color: Colors.grey),
+              Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.blue,
                 ),
+                child: Icon(Icons.search, color: Colors.white),
               ),
-              GestureDetector(
-                child: Icon(
-                  Icons.calendar_month,
-                  size: 30,
-                  color: const Color.fromARGB(255, 105, 104, 104),
-                ),
-              ),
-              GestureDetector(
-                child: Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.blue,
-                  ),
-                  child: Icon(Icons.search, color: Colors.white),
-                ),
-              ),
-              GestureDetector(
-                child: Icon(
-                  Icons.message_outlined,
-                  size: 30,
-                  color: const Color.fromARGB(255, 105, 104, 104),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: Icon(
-                  Icons.person,
-                  size: 30,
-                  color: const Color.fromARGB(255, 105, 104, 104),
-                ),
-              ),
+              Icon(Icons.message_outlined, size: 30, color: Colors.grey),
+              Icon(Icons.person, size: 30, color: Colors.grey),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class DestinationCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8, bottom: 12, left: 10, right: 8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
-            child: Image.asset(
-              'assets/hp_destination_img.png',
-              width: 240,
-              height: 290, // Set a height to avoid layout issues
-              fit: BoxFit.cover,
-            ),
-          ),
-          SizedBox(height: 9),
-          Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      'Niladri Reservoir',
-                      style: GoogleFonts.poppins(
-                        fontSize: 19,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  Icon(Icons.star, size: 16, color: Colors.yellow),
-                  SizedBox(width: 4),
-                  Text(
-                    '4.7',
-                    style: GoogleFonts.poppins(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 7), // Adds spacing
-          Row(
-            children: [
-              Icon(Icons.location_on_rounded, size: 20, color: Colors.grey),
-              SizedBox(width: 4),
-              Expanded(
-                child: Text(
-                  'Tekergat, Sunamgnj',
-                  style: GoogleFonts.poppins(color: Colors.grey, fontSize: 17),
-                ),
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }
